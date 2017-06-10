@@ -1,3 +1,5 @@
+package net.andrewsouthard;
+
 /**
  * Created by andrewsouthard on 5/31/17.
  */
@@ -23,10 +25,24 @@ public class Main {
 
     }
 
+
+    public static void printArray(int[] arr) {
+        for(int i=0; i<arr.length; i++) {
+            System.out.println(arr[i] + " ");
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("Algs program");
-        int[] testSortedArray = {1, 2, 4, 5, 6, 7, 8, 9};
-        System.out.println(binarySearch(4, testSortedArray));
-        System.out.println(binarySearch(3, testSortedArray));
+        int[] testArray = {6, 22, 41, 5, 16, 37, 8, 9};
+
+        Node fiveNode = new Node(5);
+        Node fourNode = new Node(4);
+
+        LinkedList myLinkedList = new LinkedList(fiveNode);
+        myLinkedList.addNode(fourNode);
+
+        System.out.println(fiveNode.getNext().getValue());
+
     }
 }

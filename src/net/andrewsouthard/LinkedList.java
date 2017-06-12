@@ -24,6 +24,12 @@ public class LinkedList {
         Node current = head;
         Node temp = new Node(value);
 
+        if(current == null){
+            this.head = temp;
+            count+=1;
+            return;
+        }
+
         while(current.getNext() != null){
             current = current.getNext();
         }
@@ -36,13 +42,14 @@ public class LinkedList {
 
         if(current == null) {
             System.out.println("no Nodes to remove, empty Linked List");
-            System.exit(0);
+            return;
         }
 
         else if(getCount() == 1) {
             System.out.println("only one Node in Linked List, deleting Node");
             this.head = null;
-            System.exit(0);
+            count--;
+            return;
         }
 
         while(current.getNext().getNext() != null) {
@@ -50,7 +57,6 @@ public class LinkedList {
         }
         current.setNext(null);
         count--;
-
     }
 
     public int getCount() {
@@ -59,5 +65,16 @@ public class LinkedList {
 
     public Boolean isEmpty() {
         return getCount() == 0;
+    }
+
+    public int get(int nodeNum) {
+        if (nodeNum <= 0) {
+            return -1;
+        }
+        Node current = head;
+        for(int i = 1; i < nodeNum; i++) {
+            current = current.getNext();
+        }
+        return current.getValue();
     }
 }

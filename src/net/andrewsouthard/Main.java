@@ -33,16 +33,27 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println("Algs program");
-        int[] testArray = {6, 22, 41, 5, 16, 37, 8, 9};
-
+        // create a node
         Node fiveNode = new Node(5);
-        Node fourNode = new Node(4);
 
+        // create a linked list with fiveNode at the head
         LinkedList myLinkedList = new LinkedList(fiveNode);
-        myLinkedList.addNode(fourNode);
 
+        // add a node with the value 4
+        myLinkedList.addNode(4);
         System.out.println(fiveNode.getNext().getValue());
+
+        // get count of linked list, should be 2
+        System.out.println(myLinkedList.getCount());
+
+        // remove node, print count of linked list should be 1 and nextnode for fiveNode should be null
+        myLinkedList.removeNode();
+        System.out.println(myLinkedList.getCount());
+        System.out.println(fiveNode.getNext());
+
+        // add a node of value 8, get the second element from linked list--should be 8
+        myLinkedList.addNode(8);
+        System.out.println(myLinkedList.get(2));
 
     }
 }
